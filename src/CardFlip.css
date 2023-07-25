@@ -1,75 +1,73 @@
+/* CardFlipStyles.css */
+
+/* Container for the card */
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; /* Adjust the height as needed */
+  background-color: #8f729c4b; /* Use the desired background color */
 }
 
+/* The card */
 .card {
-  width: 300px;
-  height: 420px; /* Increased height */
-  background: linear-gradient(to bottom, #0a0a0a, #7a1b92fd, #704b8fef, #000);
-  color: rgb(224, 218, 218);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 400px; /* Adjust the width as needed */
+  height: 600px; /* Adjust the height as needed */
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  font-family: 'sans-serif'; /* Changed font family */
-  font-size: 22px; /* Increased font size */
   padding: 20px;
-  font-weight: bold;
-}
-
-.form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
-  width: 100%;
+  justify-content: space-between; /* Use space-between to separate card content */
+  background-color: #fff; /* Use the desired background color for the card */
 }
 
+/* Flex display for form groups */
+.form-group.flex-display {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Label style */
 .form-group label {
-  margin-bottom: 5px;
+  flex: 1; /* Use flex: 1 to make labels align to the right edge */
+  text-align: right; /* Align the labels to the right */
+  margin-right: 10px;
 }
 
-.form-group input {
-  padding: 10px;
-  border: 1px solid #fff;
+/* Input style */
+.form-group input,
+.form-group select {
+  flex: 2; /* Increase the input width relative to labels */
+  padding: 8px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  outline: none;
-  color: #fff;
-  background-color: transparent;
 }
 
-.form-group input::placeholder {
-  color: #bbb;
-}
-
+/* Error message style */
 .error {
   color: red;
   margin-top: 5px;
 }
 
-button {
-  padding: 10px 30px; /* Increased width */
+/* Submit button style */
+button[type="submit"],
+button[type="button"] {
+  background-color: #007bff; /* Use the desired color for the button */
+  color: #fff;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  background-color: #fff;
-  color: #0d47a1; /* Very dark navy blue as text color */
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
-.flip-button {
-  padding: 10px 30px; /* Increased width */
-  border: none;
-  background-color: #0d47a1; /* Very dark navy blue as background color */
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
+/* Back button inside the card */
+.card-content button[type="button"] {
+  margin-top: 20px;
+}
+
+/* Additional spacing for form groups */
+.form-group + .form-group {
   margin-top: 15px;
 }

@@ -11,66 +11,69 @@ const CardFlipContainer = () => {
     setIsFlipped(!isFlipped);
   };
 
-  const handleSignInSubmit = (data) => {
-    console.log('Sign In Data:', data);
-  };
-
   const handleSignUpSubmit = (data) => {
     console.log('Sign Up Data:', data);
+  };
+
+  const handleSignInSubmit = (data) => {
+    console.log('Sign In Data:', data);
   };
 
   return (
     <div className="card-container">
       <CardFlip isFlipped={isFlipped}>
-        <div className="card" style={{ backgroundColor: '#0d47a1' }}>
-          {/* First side of the card */}
+        <div className="card" style={{ backgroundColor: '#8f729c4b' }}>
+          {/* First side of the card - Sign Up */}
           <div className="card-content">
-            <h2 style={{ fontFamily: 'sans-serif', fontSize: '24px', color: '#fff' }}>Sign In</h2>
-            <form onSubmit={handleSubmit(handleSignInSubmit)}>
-              <div className="form-group">
-                <label>Email:</label>
-                <input
-                  type="email"
-                  {...register('email', { required: true })}
-                />
-                {errors.email && <p className="error">This field is required.</p>}
-              </div>
-              <div className="form-group">
-                <label>Password:</label>
-                <input
-                  type="password"
-                  {...register('password', { required: true })}
-                />
-                {errors.password && <p className="error">This field is required.</p>}
-              </div>
-              <button type="submit">Sign In</button>
-            </form>
-            <button type="button" onClick={handleFlip}>
-              Back to Sign Up
-            </button>
-          </div>
-        </div>
-
-        <div className="card" style={{ backgroundColor: '#0d47a1' }}>
-          {/* Second side of the card */}
-          <div className="card-content">
-            <h2 style={{ fontFamily: 'sans-serif', fontSize: '24px', color: '#fff' }}>Sign Up</h2>
+            <h2 className="flex-display">Sign Up</h2>
             <form onSubmit={handleSubmit(handleSignUpSubmit)}>
-              <div className="form-group">
-                <label>Email:</label>
+              <div className="form-group flex-display">
+                <label>First Name:</label>
                 <input
-                  type="email"
-                  {...register('email', { required: true })}
+                  type="text"
+                  {...register('firstName', { required: true })}
                 />
-                {errors.email && <p className="error">This field is required.</p>}
+                {errors.firstName && <p className="error">This field is required.</p>}
+              </div>
+              <div className="form-group flex-display">
+                <label>Middle Name:</label>
+                <input
+                  type="text"
+                  {...register('middleName')}
+                />
+              </div>
+              <div className="form-group flex-display">
+                <label>Last Name:</label>
+                <input
+                  type="text"
+                  {...register('lastName', { required: true })}
+                />
+                {errors.lastName && <p className="error">This field is required.</p>}
               </div>
               <div className="form-group">
-                <label>Password:</label>
+                <label>Date of Birth:</label>
                 <input
-                  type="password"
-                  {...register('password', { required: true })}
+                  type="date"
+                  {...register('dateOfBirth')}
                 />
-                {errors.password && <p className="error">This field is required.</p>}
+              </div>
+              <div className="form-group">
+                <label>Gender:</label>
+                <select {...register('gender', { required: true })}>
+                  <option value="MALE">Male</option>
+                  <option value="FEMALE">Female</option>
+                  <option value="OTHERS">Others</option>
+                  <option value="UNKNOWN">Unknown</option>
+                  <option value="NOT SPECIFIED">Not Specified</option>
+                </select>
+                {errors.gender && <p className="error">This field is required.</p>}
+              </div>
+              <div className="form-group">
+                <label>Phone:</label>
+                <input
+                  type="text"
+                  {...register('phone')}
+                />
               </div>
               <div className="form-group">
                 <label>Username:</label>
@@ -80,10 +83,55 @@ const CardFlipContainer = () => {
                 />
                 {errors.username && <p className="error">This field is required.</p>}
               </div>
+              <div className="form-group">
+                <label>Email:</label>
+                <input
+                  type="email"
+                  {...register('email', { required: true })}
+                />
+                {errors.email && <p className="error">This field is required.</p>}
+              </div>
+              <div className="form-group">
+                <label>Password:</label>
+                <input
+                  type="password"
+                  {...register('password', { required: true })}
+                />
+                {errors.password && <p className="error">This field is required.</p>}
+              </div>
               <button type="submit">Sign Up</button>
             </form>
             <button type="button" onClick={handleFlip}>
               Back to Sign In
+            </button>
+          </div>
+        </div>
+
+        {/* Second side of the card - Sign In */}
+        <div className="card" style={{ backgroundColor: '#8f729c4b' }}>
+          <div className="card-content">
+            <h2 className="flex-display">Sign In</h2>
+            <form onSubmit={handleSubmit(handleSignInSubmit)}>
+              <div className="form-group">
+                <label>Username:</label>
+                <input
+                  type="text"
+                  {...register('signInUsername', { required: true })}
+                />
+                {errors.signInUsername && <p className="error">This field is required.</p>}
+              </div>
+              <div className="form-group">
+                <label>Password:</label>
+                <input
+                  type="password"
+                  {...register('signInPassword', { required: true })}
+                />
+                {errors.signInPassword && <p className="error">This field is required.</p>}
+              </div>
+              <button type="submit">Sign In</button>
+            </form>
+            <button type="button" onClick={handleFlip}>
+              Back to Sign Up
             </button>
           </div>
         </div>
