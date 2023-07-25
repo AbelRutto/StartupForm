@@ -1,7 +1,10 @@
+// CardFlipContainer.js
+
 import React, { useState } from 'react';
 import CardFlip from 'react-card-flip';
 import { useForm } from 'react-hook-form';
 import './CardFlip.css';
+import logo from './assets/logoh.png'; // Import the logo image
 
 const CardFlipContainer = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -21,13 +24,15 @@ const CardFlipContainer = () => {
 
   return (
     <div className="card-container">
+       {/* Add the logo at the top far left */}
+       <img src={logo} alt="Logo" className="logo-image" />
       <CardFlip isFlipped={isFlipped}>
         <div className="card" style={{ backgroundColor: '#8f729c4b' }}>
           {/* First side of the card - Sign Up */}
           <div className="card-content">
             <h2 className="flex-display">Sign Up</h2>
             <form onSubmit={handleSubmit(handleSignUpSubmit)}>
-              <div className="form-group flex-display">
+              <div className="form-group flex-display name-label">
                 <label>First Name:</label>
                 <input
                   type="text"
@@ -35,14 +40,14 @@ const CardFlipContainer = () => {
                 />
                 {errors.firstName && <p className="error">This field is required.</p>}
               </div>
-              <div className="form-group flex-display">
+              <div className="form-group flex-display name-label">
                 <label>Middle Name:</label>
                 <input
                   type="text"
                   {...register('middleName')}
                 />
               </div>
-              <div className="form-group flex-display">
+              <div className="form-group flex-display name-label">
                 <label>Last Name:</label>
                 <input
                   type="text"

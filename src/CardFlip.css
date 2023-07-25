@@ -24,42 +24,55 @@
 /* Flex display for form groups */
 .form-group.flex-display {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align items at the top */
   margin-bottom: 10px;
 }
 
 /* Label style */
 .form-group label {
-  flex: 1; /* Use flex: 1 to make labels align to the right edge */
+  width: 140px; /* Set a fixed width for the labels */
   text-align: right; /* Align the labels to the right */
   margin-right: 10px;
+  font-family: sans-serif; /* Change the font family to sans-serif */
+  font-size: 16px; /* Increase the font size */
+}
+
+/* Name label style */
+.form-group.flex-display.name-label {
+  align-items: center; /* Align items at the center */
 }
 
 /* Input style */
 .form-group input,
 .form-group select {
-  flex: 2; /* Increase the input width relative to labels */
+  flex: 1; /* Use flex: 1 to make inputs take the remaining width */
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(156, 44, 156, 0.719);
   border-radius: 5px;
+  font-family: sans-serif; /* Change the font family to sans-serif */
+  font-size: 16px; /* Increase the font size */
 }
 
 /* Error message style */
 .error {
   color: red;
   margin-top: 5px;
+  font-family: sans-serif; /* Change the font family to sans-serif */
+  font-size: 14px; /* Increase the font size */
 }
 
 /* Submit button style */
 button[type="submit"],
 button[type="button"] {
-  background-color: #007bff; /* Use the desired color for the button */
+  background-color: #b203e75b; /* Use the desired color for the button */
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  font-family: sans-serif; /* Change the font family to sans-serif */
+  font-size: 19px; /* Increase the font size */
 }
 
 /* Back button inside the card */
@@ -71,3 +84,44 @@ button[type="button"] {
 .form-group + .form-group {
   margin-top: 15px;
 }
+
+/* Adjust labels for uniform alignment */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Adjust label names to be on a straight line */
+.card-content .form-group.name-label {
+  flex-direction: row;
+}
+
+/* Responsive styles for smaller screens */
+@media only screen and (max-width: 767px) {
+  .card {
+    width: 90%; /* Adjust the width for smaller screens */
+    height: auto; /* Allow the card to adjust its height based on content */
+  }
+  
+  .form-group label {
+    width: 100%; /* Make the labels occupy the full width on smaller screens */
+    text-align: left; /* Align the labels to the left on smaller screens */
+    margin-right: 0; /* Remove the margin-right on smaller screens */
+    margin-bottom: 5px; /* Add some spacing between the labels and inputs on smaller screens */
+  }
+}
+/* CardFlipStyles.css */
+
+/* ... (your existing styles) */
+
+/* Styles for the logo image */
+.logo-image {
+  position: absolute;
+  top: 20px; /* Adjust the distance from the top as needed */
+  left: 20px; /* Adjust the distance from the left as needed */
+  width: 100px; /* Adjust the width of the logo as needed */
+  height: auto; /* Allow the logo to adjust its height proportionally */
+}
+
+/* ... (your existing styles) */
